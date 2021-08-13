@@ -25,7 +25,7 @@ const PublicacionForm = (props) => {
                 <div className="input-group-text bg-light">
                     <i className="material-icons">add</i>
                 </div>
-                <input type="text" className="form-control" placeholder="Hola esta es mi publicacion" name="parrafo" onChange={actualizacionInput} value={values.parrafo} />
+                <input type="text" className="form-control text-white" placeholder="Hola esta es mi publicacion" name="parrafo" onChange={actualizacionInput} value={values.parrafo} />
             </div>
 
             <button className="btn btn-primary btn-block">Publicar</button>
