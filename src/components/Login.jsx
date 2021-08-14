@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import { Redirect, Route, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import fb from "../firebase";
 
 const Login = () => {
+	let history = useHistory();
+
 	const [user, setUser] = useState({
 		email: "",
 		password: "",
 	});
-
-	let history = useHistory();
 
 	const validateUser = (e) => {
 		e.preventDefault();
@@ -25,9 +25,7 @@ const Login = () => {
 		fb.auth()
 			.signInWithEmailAndPassword(User.email, User.password)
 			.then((userCredential) => {
-				// eslint-disable-next-line
-				var user = userCredential.user;
-				authStateListener(user);
+				history.push("/");
 			})
 			.catch((error) => {
 				var errorCode = error.code;
@@ -42,20 +40,9 @@ const Login = () => {
 			});
 	};
 
-	const authStateListener = (userLogged) => {
-		fb.auth().onAuthStateChanged((userLogged) => {
-			if (userLogged) {
-				// User is sign in
-				history.push("/");
-			} else {
-				// User is sign out
-			}
-		});
-	};
-
 	return (
 		<>
-			<form className="from-group" onSubmit={validateUser}>
+			<form className="card card-body" onSubmit={validateUser}>
 				<h2 className="mb-3">Login</h2>
 				<input
 					type="text"

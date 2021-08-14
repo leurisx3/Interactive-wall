@@ -1,6 +1,11 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom';
+import fb from "../firebase";
+
 
 const PublicacionForm = (props) => {
+
+    let history = useHistory();
 
     const estadoInicial = {
         parrafo: '',
@@ -15,8 +20,24 @@ const PublicacionForm = (props) => {
 
     const manejarEntrega = (e) => {
         e.preventDefault();
-        props.agregarEditarPublicacion(values);
-        setValues({ ...estadoInicial })
+
+        authStateListener()
+    };
+
+    const authStateListener = () => {
+        fb.auth().onAuthStateChanged((userLogged) => {
+
+            if (userLogged) {
+                // User is sign in
+
+                props.agregarEditarPublicacion(values);
+                setValues({ ...estadoInicial })
+            } else {
+                // User is sign out
+
+                history.push("/sign-in");
+            }
+        });
     };
 
     return (

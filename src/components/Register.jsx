@@ -55,7 +55,7 @@ const Register = () => {
 	return (
 		<div className="container p-4">
 			<div className="row">
-				<form className="form-group" onSubmit={addUser}>
+				<form className="card card-body" onSubmit={addUser}>
 					<h2 className="mb-3">Sign up</h2>
 					<input
 						type="text"

@@ -9,7 +9,6 @@ const Publicacion = () => {
 
     const agregarEditarPublicacion = async (publicacionObject) => {
         await db.collection('Publicaciones').doc().set(publicacionObject)
-        console.log('Nueva publicacion');
     };
 
     const obtenerPublicaciones = async () => {
