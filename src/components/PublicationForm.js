@@ -29,12 +29,11 @@ const PublicacionForm = (props) => {
 
             if (userLogged) {
                 // User is sign in
-
                 props.agregarEditarPublicacion(values);
                 setValues({ ...estadoInicial })
             } else {
                 // User is sign out
-
+                alert('You are not logged!')
                 history.push("/sign-in");
             }
         });
