@@ -16,7 +16,7 @@
 
 ![sign_in](screenshots/sign_in.PNG)
 
-<p>4. Hacindo una publicacion luego de logearse</p>
+<p>4. Haciendo una publicacion luego de logearse</p>
 
 ![publication](screenshots/publication.PNG)
 
